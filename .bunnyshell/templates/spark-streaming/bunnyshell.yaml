@@ -1,6 +1,6 @@
-environment:
-  name: SparkStreamingEnv
-  description: Environment for Apache Spark Streaming app stack
+kind: Environment
+name: SparkStreamingEnv
+description: Environment for Apache Spark Streaming app stack
 
 resource_allocation:
   - type: virtual_machine

@@ -1,3 +1,5 @@
+name: SparkStreamingEnv
+discoverable: false
 components:
   - name: SparkMaster
     type: spark_master
