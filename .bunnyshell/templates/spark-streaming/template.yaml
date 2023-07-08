@@ -1,0 +1,34 @@
+components:
+  - name: SparkMaster
+    type: spark_master
+    config:
+      spark_version: 3.1.2
+      port: 7077
+
+  - name: SparkWorker
+    type: spark_worker
+    config:
+      spark_version: 3.1.2
+      cores: 2
+      memory: 4g
+
+  - name: KafkaBroker
+    type: kafka_broker
+    config:
+      kafka_version: 2.8.0
+      port: 9092
+
+  - name: Frontend
+    type: web_application
+    config:
+      framework: React
+      port: 3000
+      backend_url: ${SPARK_MASTER_URL}
+
+  - name: Backend
+    type: web_application
+    config:
+      framework: Node.js
+      port: 8080
+      database_url: ${MYSQL_DATABASE_URL}
+      kafka_brokers: ${KAFKA_BOOTSTRAP_SERVERS}

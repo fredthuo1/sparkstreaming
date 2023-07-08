@@ -1,0 +1,27 @@
+environment:
+  name: SparkStreamingEnv
+  description: Environment for Apache Spark Streaming app stack
+
+resource_allocation:
+  - type: virtual_machine
+    size: medium
+    quantity: 2
+    memory: 8GB
+    cpu: 4
+    disk: 50GB
+
+variables:
+  - name: SPARK_MASTER_URL
+    value: spark://spark-master:7077
+  - name: KAFKA_BOOTSTRAP_SERVERS
+    value: kafka-broker:9092
+
+build_parameters:
+  - name: BUILD_MODE
+    value: production
+
+dependencies:
+  - type: database
+    name: MySQL
+  - type: message_queue
+    name: Kafka
